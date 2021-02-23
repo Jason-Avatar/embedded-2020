@@ -1,30 +1,28 @@
 # Embedded Systems @ NCKU EE
 
-Code and docs
+## Github link
+https://github.com/rtes-ncku/embedded-2020
 
-## Development
+## Directory structure and file names
+![](https://i.imgur.com/VjYTriL.png)
 
-### Setup
-
-Install clang-format and hooks
-
-```
-sudo apt install clang-format
-make hooks
-```
-
-### Coding style
-
-Coding style is enforced by [clang-format](https://clang.llvm.org/docs/ClangFormat.html). It is called in a pre-commit hook.
-
-The files should be in UTF-8 encoding.
-
-### Directory structure and file names
-
-Put your C code in `src/`.
-Each entry point should have filename in form `ID-short-name.c`, e.g. `06-led-matrix.c`. 
-
-File names should not contain whitespaces. Seperate words with hyphens (`-`) instead.
+- src: 
+	source code，請不要修改此處內容。
+- result_sample: 
+	測試用執行檔，可用於瞭解結果應如何呈現。
+- code: 
+	執行 set_env.sh 後產生，請修改此資料夾內容以符合題目要求。
+- bin: 
+	make後編譯產出的執行檔，用於驗證程式是否能正常運行且符合要求。
+- README: 
+	實驗須知。
+- set_env.sh: 
+	初始化環境用。
+- check_file.sh: 
+	檢查檔案是否完整 (助教用)。
+- clear_set.sh: 
+	清除產生的 code 與 bin 資料夾內容，以方便快速重設 (如需保留修改後內容，記得要先備份)。
+- Makefile 
 
 ## Instructions
 
@@ -35,18 +33,26 @@ Requirements:
 * GNU Make
 * GCC
 
+1. Initialize development environment
+初始化開發環境
+```
+sh set_env.sh
+```
+執行完上述指令後應產生出 code 資料夾與其內容
 
+2. Compile modified code
+依需求編譯所需之程式碼
 ```
 # build everything
 make all
 # build selected file
 make bin/06
 ```
+編譯位於 code 資料夾內的程式，並透過 scp 指令將執行檔傳輸至 Up board 上等待執行
 
-
-### Running
-
-Binaries should run with sudo, e.g.
+3. Running
+執行程式
 ```
 sudo bin/06
 ```
+注意: 需使用 **sudo** 權限才能正常運行程式
