@@ -10,6 +10,7 @@ then
 else
   cp -rf ./src ./code
   echo "lab builded !"
+  chmod 664 ./code/*
 fi
 
 #export PATH=/usr/src/opt/microtime/pro/devkit/arm/pxa270/gcc-4.0.2-glibc-2.3.3/arm-unknown-linux-gnu/bin:$PATH
