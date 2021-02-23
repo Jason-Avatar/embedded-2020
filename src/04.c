@@ -11,7 +11,6 @@ void delay(void) { sleep_ms(0.1); }
 
 int main() {
   pin_pl = mraa_gpio_init(35);    // 35為並行輸入腳
-  int c = 0;                      //用來確定switch是否有被按壓
   pin_data = mraa_gpio_init(37);  //傳送資料的pin
 
   pin_ce = mraa_gpio_init(31);  // 31為致能
