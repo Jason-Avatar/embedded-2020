@@ -4,7 +4,7 @@
 https://github.com/rtes-ncku/embedded-2020
 
 ## Directory structure and file names
-![](https://i.imgur.com/VjYTriL.png)
+![](https://i.imgur.com/ua38OXh.png)
 
 - src: 
 	source code，請不要修改此處內容。
