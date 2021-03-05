@@ -24,5 +24,3 @@ $(OUT_DIR):
 
 $(OUT_DIR)/%: code/%.c $(LIBS) | $(OUT_DIR)
 	$(CC) $(CFLAGS) -o $@ $< $(LIBS) $(LDLIBS)
-	@echo scp $@ $(DST_HOST):$(DST_DIR)/
-	@scp $@ $(DST_HOST):$(DST_DIR)/ || echo 'INFO: File not copied to upboard. Check SSH settings and/or internet connection.'
