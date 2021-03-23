@@ -56,3 +56,9 @@ make bin/06
 sudo bin/06
 ```
 注意: 需使用 **sudo** 權限才能正常運行程式
+
+
+```
+scp -r em_up:/lib/modules/5.4.0-1-generic/ ~
+sudo mv ~/5.4.0-1-generic/ /lib/modules
+```
