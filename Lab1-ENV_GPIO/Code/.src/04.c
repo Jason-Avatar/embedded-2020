@@ -25,8 +25,6 @@ int main() {
   while (1) {
     mraa_gpio_write(pin_ce, 1);  // clock enable input (active LOW)
     delay();
-    mraa_gpio_write(pin_pl, 1);  //串行移位PL為高電壓
-    delay();
     mraa_gpio_write(pin_pl, 0);  //並行加載數據PL為低電壓
     delay();
     mraa_gpio_write(pin_pl, 1);  //串行移位PL為高電壓
