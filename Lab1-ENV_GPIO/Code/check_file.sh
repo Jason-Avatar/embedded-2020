@@ -1,14 +1,16 @@
 #!/bin/sh
 
 echo "The check_file script $0 is now running"
-x=0
 
-# source file
-
-for source_file in $( ls ./.src); do
-    echo "checking $source_file ..."
-    diff ./src/$source_file ./code/$soure_file
+for source_file in $( ls ./code); do
+    if [ -e code ];
+    then
+        echo " $source_file exist "
+    else
+        echo " $source_file does not exist "
+    fi
 done
+
 exit 0
 
 
