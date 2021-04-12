@@ -21,24 +21,40 @@ int main() {
   while (1) {
     if (mraa_gpio_read(gpio2) == 0) {
       Current_time = clock();
+      
+      /* modify section below this line */
+      
       // IF switch down immediately after it up,it means bounce occurs.
-      if ((double)(Current_time - Previous_up_time) / CLOCKS_PER_SEC >= 0.05) {
-        if (switch_status == 1) {
+      // hint: not immediately can be represent to
+      // (double)(Current_time - Previous_up_time) / CLOCKS_PER_SEC >= 0.05
+      // after state change,you should upload Previous_down_time by Current_time
+      if (XXXXXXXXXXXXXXXXXXXX) {
+        if (switch_status == XXXXXXXXXXXXXXXX) {
           printf("down\n");
-          switch_status = 0;
-          Previous_down_time = Current_time;
+          switch_status = XXXXXXXXXXXXXXXXX;
+          // after state change,you should upload Previous_down_time by Current_time
+          UPDATE_SOMETHING_HERE;
         }
       }
+      
+      /* modify section above this line */
+      
     } else {
       Current_time = clock();
+      
+      /* modify section below this line */
+      
       // IF switch up immediately after it down,it means bounce occurs.
-      if ((double)(Current_time - Previous_down_time) / CLOCKS_PER_SEC >=0.05) {
-        if (switch_status == 0) {
+      if (XXXXXXXXXXXXXXXXXXXXXXXX) {
+        if (switch_status == XXXXXXXXXXXXXXXXXXXXXXXXXX) {
           printf("up\n");
-          switch_status = 1;
-          Previous_up_time = Current_time;
+          switch_status = XXXXXXXXXXXXXXXX;
+          // after state change,you should upload Previous_down_time by Current_time
+          UPDATE_SOMETHING_HERE;
         }
       }
+      
+      /* modify section above this line */
     }
   }
 }

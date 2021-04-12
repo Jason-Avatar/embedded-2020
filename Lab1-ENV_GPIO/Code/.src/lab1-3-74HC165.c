@@ -47,13 +47,16 @@ int main() {
 
   signal(SIGINT, int_handler);
   while (!stopped) {
-    mraa_gpio_write(pin_ce, 1);  // disable clk input
+  
+    /* modify section below this line */
+    
+    mraa_gpio_write(pin_ce, XXXXXXXXXXX);  // disable clk input
     sleep_ns(1000);
-    mraa_gpio_write(pin_pl, 0);  // enable parallel data input
+    mraa_gpio_write(pin_XX, XXXXXXXXXXX);  // enable parallel data input
     sleep_ns(1000);
-    mraa_gpio_write(pin_pl, 1);  // disable & hold parallel data input
+    mraa_gpio_write(pin_pl, XXXXXXXXXXX);  // disable & hold parallel data input
     sleep_ns(1000);
-    mraa_gpio_write(pin_ce, 0);  // enable clk input
+    mraa_gpio_write(pin_XX, XXXXXXXXXXX);  // enable clk input
     sleep_ns(1000);
 
     for (int i = 0; i < 8; i++) {
@@ -61,15 +64,20 @@ int main() {
       sleep_ns(1000);
       switch_status[i] =
           mraa_gpio_read(pin_data);  // read one bit data from pin_data
-      mraa_gpio_write(pin_clk, 1);   // set clk signal
+      mraa_gpio_write(pin_XX, XXXXXXXXXXXX);   // set clk signal
       sleep_ns(1000);
     }
     mraa_gpio_write(pin_clk, 0);  // unset clk signal
     sleep_ns(1000);
-    for (int i = 0; i < 8; i++) {
-      printf("%d ", switch_status[i]);  // print switch status
-    }
-    printf("\n");
+    
+    /* modify section above this line */
+    
+    /* modify section below this line to satisfy ex2*/
+    
+    // print switch status
+    
+    /* modify section above this line to satisfy ex2*/
+    
     sleep_ms(100);
   }
 

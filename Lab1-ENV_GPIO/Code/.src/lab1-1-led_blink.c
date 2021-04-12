@@ -32,10 +32,16 @@ int main() {
   signal(SIGINT, int_handler);
 
   while (!stopped) {
-    mraa_gpio_write(gpio, 1);  // turn on the led for 1 second
-    sleep(1);
-    mraa_gpio_write(gpio, 0);  // turn off the led for 1 second
-    sleep(1);
+  
+    /* modify section below this line */
+    
+    // turn on the led for 1 second
+    sleep(1);  //sleep 1 sec
+    // turn off the led for 1 second
+    sleep(1);  //sleep 1 sec
+    
+    /* modify section above this line */
+    
   }
 
   mraa_gpio_close(gpio);

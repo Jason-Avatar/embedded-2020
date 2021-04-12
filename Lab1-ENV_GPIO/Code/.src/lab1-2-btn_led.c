@@ -37,7 +37,14 @@ int main() {
   signal(SIGINT, int_handler);
 
   while (!stopped) {
-    mraa_gpio_write(gpio_led, !mraa_gpio_read(gpio_btn));
+  
+    /* modify section below this line */
+    
+    // read gpio_btn's value
+    // write proper value to gpio_led. Proper value is referenced from gpio_btn's value
+    
+    /* modify section above this line */
+    
   }
   mraa_gpio_close(gpio_led);
   mraa_gpio_close(gpio_btn);
