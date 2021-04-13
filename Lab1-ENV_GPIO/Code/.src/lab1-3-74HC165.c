@@ -12,7 +12,6 @@
 #include <signal.h>
 #include <stdint.h>
 #include <time.h>
-
 #include "mraa.h"
 #include "upboard_hat.h"
 #include "util.h"
