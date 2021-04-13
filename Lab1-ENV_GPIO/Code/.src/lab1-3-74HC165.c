@@ -12,7 +12,6 @@
 #include <signal.h>
 #include <stdint.h>
 #include <time.h>
-
 #include "mraa.h"
 #include "upboard_hat.h"
 #include "util.h"
@@ -51,24 +50,24 @@ int main() {
     /* modify section below this line */
     
     mraa_gpio_write(pin_ce, XXXXXXXXXXX);  // disable clk input
-    sleep_ns(1000);
+    delay_ns(1000);
     mraa_gpio_write(pin_XX, XXXXXXXXXXX);  // enable parallel data input
-    sleep_ns(1000);
+    delay_ns(1000);
     mraa_gpio_write(pin_pl, XXXXXXXXXXX);  // disable & hold parallel data input
-    sleep_ns(1000);
+    delay_ns(1000);
     mraa_gpio_write(pin_XX, XXXXXXXXXXX);  // enable clk input
-    sleep_ns(1000);
+    delap_ns(1000);
 
     for (int i = 0; i < 8; i++) {
       mraa_gpio_write(pin_clk, 0);  // unset clk signal
-      sleep_ns(1000);
+      delay_ns(1000);
       switch_status[i] =
           mraa_gpio_read(pin_data);  // read one bit data from pin_data
       mraa_gpio_write(pin_XX, XXXXXXXXXXXX);   // set clk signal
-      sleep_ns(1000);
+      delay_ns(1000);
     }
     mraa_gpio_write(pin_clk, 0);  // unset clk signal
-    sleep_ns(1000);
+    delay_ns(1000);
     
     /* modify section above this line */
     
@@ -78,7 +77,7 @@ int main() {
     
     /* modify section above this line to satisfy ex2*/
     
-    sleep_ms(100);
+    delay_ms(100);
   }
 
   mraa_gpio_close(pin_pl);
